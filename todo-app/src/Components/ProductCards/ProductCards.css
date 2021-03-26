@@ -1,0 +1,23 @@
+.card {
+    display: inline-block;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    width: 28%;
+    padding: 20px;
+    margin: 20px;
+}
+img.image-css {
+    width: 200px;
+    height: 300px;
+}
+img.image-css:hover {
+    transition: 2s;
+    transform: scale(1.5);
+}
+.text-wrapper {
+    float: right;
+    margin-right: 90px;
+}
+.image-wrapper {
+    float: left;
+}

@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import ProductCards from './Components/ProductCards/ProductCards'
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +36,7 @@ class App extends React.Component {
     
         </form>
         <TodoList items={this.state.items}  filtertext={this.state.filtertext} delete={this.handleDelete}/>
-
+        <ProductCards />
       </div>
     );
   }
