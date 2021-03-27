@@ -18,8 +18,8 @@ render(){
     
 const uniqueNames = Array.from(new Set(data));
 
-
-console.log(uniqueNames);
+const unique_category= [...new Set(data.map(item => item.category))];
+const unique_brand= [...new Set(data.map(item => item.name))];
   return(
     <div >
    
@@ -27,14 +27,17 @@ console.log(uniqueNames);
    <div className='filer-wrapper'>
    <label>Product Category</label>
    <select id="category"  value={this.state.filterCategory}  onChange={this.handleFilterCategory}>
-   {uniqueNames.map((option) => {
-            return ( <option key={option.category} value={option.category}>{option.category}</option> )
+     <option value="">All</option>
+   {unique_category.map((option) => {
+           
+            return ( <option key={option} value={option}>{option}</option> )
           })}
      </select>  
      <label>Brand</label>
    <select id="brand"  value={this.state.filterBrand}  onChange={this.handleFilterBrand}>
-   {uniqueNames.map((option) => {
-            return ( <option key={option.name} value={option.name}>{option.name}</option> )
+   <option value="">All</option>
+   {unique_brand.map((option) => {
+            return ( <option key={option} value={option}>{option}</option> )
           })}
      </select>  
 
@@ -61,17 +64,17 @@ console.log(uniqueNames);
 {uniqueNames.map((item) => {
     if(item.category.includes(this.state.filterCategory) && item.name.includes(this.state.filterBrand) && (item.price>this.state.minprice && item.price<this.state.maxprice) ){
     return(
-<div key={item.id} className="card">
-  <div className='image-wrapper'>
-  <img className='image-css' src={item.image} alt={item.name}></img>  
-  </div>
-  <div className='text-wrapper'>
-        <h1>{item.name}</h1>
-        <p>Price:{item.price}</p>
-         <p>category : {item.category}</p>
+      <div key={item.id} className="card">
+        <div className='image-wrapper'>
+        <img className='image-css' src={item.image} alt={item.name}></img>  
         </div>
-    </div>
-    );
+        <div className='text-wrapper'>
+              <h1>{item.name}</h1>
+              <p>Price:{item.price}</p>
+              <p>category : {item.category}</p>
+              </div>
+          </div>
+          );
     }
     else{
         return(
