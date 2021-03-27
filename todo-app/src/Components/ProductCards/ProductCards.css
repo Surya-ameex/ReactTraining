@@ -12,7 +12,7 @@ img.image-css {
 }
 img.image-css:hover {
     transition: 2s;
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 .text-wrapper {
     float: right;
